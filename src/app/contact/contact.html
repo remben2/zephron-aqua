@@ -1,0 +1,93 @@
+<div class="container py-5 mt-4 mb-5">
+  <div class="row text-center mb-5">
+    <h2 class="display-5 fw-bold" style="color: var(--zephron-blue);">Lépjen velünk kapcsolatba!</h2>
+    <p class="lead text-muted">Kérjen személyre szabott ajánlatot, vagy tegye fel kérdéseit.</p>
+  </div>
+
+  <div class="row shadow-lg rounded-4 overflow-hidden bg-white">
+    
+    <!-- Bal oldal: Elérhetőségek (Sötét háttérrel) -->
+    <div class="col-md-5 p-5 text-white" style="background-color: var(--zephron-dark);">
+      <h3 class="fw-bold mb-4">Elérhetőségek</h3>
+      
+      <div class="d-flex align-items-center mb-4">
+        <div class="fs-2 me-3">📍</div>
+        <div>
+          <h5 class="mb-0 fw-bold">Központ</h5>
+          <p class="mb-0 text-white-50">H-1172 Budapest, Harsona utca 124.</p>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center mb-4">
+        <div class="fs-2 me-3">📞</div>
+        <div>
+          <h5 class="mb-0 fw-bold">Telefon</h5>
+          <p class="mb-0 text-white-50">+36 70 411 6414</p>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center mb-5">
+        <div class="fs-2 me-3">✉️</div>
+        <div>
+          <h5 class="mb-0 fw-bold">Email</h5>
+          <p class="mb-0 text-white-50">zephron@zephron.hu</p>
+        </div>
+      </div>
+
+      <!-- Ide jön majd később egy igazi Google Térkép -->
+      <div class="w-100 rounded-3 overflow-hidden bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2266.852363295136!2d19.286241043764335!3d47.4946478383746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741c6bf1708537f%3A0x6f3184c1627b4d2!2sBudapest%2C%20Harsona%20u.%20124%2C%201172!5e0!3m2!1shu!2shu!4v1790095376877!5m2!1shu!2shu" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+
+    <!-- Jobb oldal: Az Űrlap -->
+    <div class="col-md-7 p-5">
+      <h3 class="fw-bold mb-4" style="color: var(--zephron-dark);">Küldjön üzenetet</h3>
+            <!-- Sikeres üzenet (Csak akkor jelenik meg, ha a TS-ben a showSuccessMessage igaz!) -->
+      <div class="alert alert-success d-flex align-items-center" *ngIf="showSuccessMessage">
+        <span class="fs-4 me-3">✅</span>
+        <div>
+          <strong>Sikeres küldés!</strong> Köszönjük az üzenetet, hamarosan felvesszük Önnel a kapcsolatot.
+        </div>
+      </div>
+      
+           <div class="row">
+        <!-- Név bekérése -->
+        <div class="col-md-6 mb-4">
+          <label class="form-label text-muted">Az Ön neve</label>
+          <input type="text" class="form-control form-control-lg bg-light border-0" 
+                 [(ngModel)]="senderName" 
+                 required 
+                 #nameField="ngModel" 
+                 [class.is-invalid]="nameField.invalid && (nameField.touched || isFormSubmitted)">
+        </div>
+        
+        <!-- Email bekérése -->
+        <div class="col-md-6 mb-4">
+          <label class="form-label text-muted">E-mail címe</label>
+          <input type="email" class="form-control form-control-lg bg-light border-0" 
+                 [(ngModel)]="senderEmail" 
+                 required 
+                 #emailField="ngModel" 
+                 [class.is-invalid]="emailField.invalid && (emailField.touched || isFormSubmitted)">
+        </div>
+      </div>
+
+      <!-- Üzenet bekérése -->
+      <div class="mb-4">
+        <label class="form-label text-muted">Üzenet szövege</label>
+        <textarea class="form-control form-control-lg bg-light border-0" rows="5" 
+                  [(ngModel)]="message" 
+                  required 
+                  #messageField="ngModel" 
+                  [class.is-invalid]="messageField.invalid && (messageField.touched || isFormSubmitted)"></textarea>
+      </div>
+
+      <!-- Küldés gomb -->
+      <button class="btn btn-lg w-100 fw-bold" style="background-color: var(--zephron-green); color: white;" (click)="onSend()">
+        Üzenet elküldése
+      </button>
+
+    </div>
+  </div>
+</div>

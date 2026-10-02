@@ -1,0 +1,25 @@
+/* Alapállapot: Teljesen szürke, kicsit átlátszó, és egyenletes méretű */
+.partner-logo {
+  max-height: 100px; 
+  max-width: 250px;
+  
+  object-fit: contain; /* Hogy a képarány ne torzuljon el */
+  
+  /* A varázslat: 100% szürke és 60% átlátszóság */
+  filter: grayscale(100%);
+  opacity: 0.6;
+  
+  /* Beállítjuk, hogy minden változás (pl. ha ráhúzzuk az egeret) 0.4 másodperc alatt animálódjon be */
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+/* Amikor a felhasználó ráhúzza az egeret (:hover) */
+.partner-logo:hover {
+  /* Visszaadjuk az eredeti színeket és a teljes láthatóságot! */
+  filter: grayscale(0%);
+  opacity: 1;
+  
+  /* Egy icipicit fel is nagyítjuk (1.05 = 5%-os nagyítás) a drámai hatás kedvéért */
+  transform: scale(1.05);
+}

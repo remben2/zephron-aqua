@@ -1,0 +1,10 @@
+/* Dropdown megjelenítése hover-re */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Biztosítjuk, hogy a dropdown a navbar ALATT jelenjen meg, ne felett! */
+.dropdown .dropdown-menu {
+  top: 100%;
+  margin-top: 0;
+}

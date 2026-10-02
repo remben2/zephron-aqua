@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+  /* A névjegykártyáról "lopott" színek */
+  --zephron-blue: #2B9FD9; 
+  --zephron-green: #A4C739;
+  --zephron-dark: #333333;
+}
+
+/* Általános beállítás az egész oldalra */
+body {
+  color: var(--zephron-dark);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Egy letisztult ipari betűtípus */
+}

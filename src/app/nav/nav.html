@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-sm">
+  <div class="container">
+    <!-- Logó / Cégnév -->
+    <a class="navbar-brand fw-bold" routerLink="/home">
+      <!-- Ide majd tehetünk be igazi képet is a logóról, most egyelőre szöveg -->
+      <span style="color: var(--zephron-blue);">ZEPHRON</span> <span style="color: var(--zephron-green);">AQUA</span>
+    </a>
+
+    <!-- A hamburger menü gomb mobilokra -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- A menüpontok -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Az 'ms-auto' jobbra tolja a menüt -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Főoldal</a>
+        </li>
+        
+        <!-- Szolgáltatások: a szöveg linkként nyitja meg az összeset, a nyíl legördíti az almenüt -->
+        <li class="nav-item dropdown d-flex align-items-center">
+          
+          <!-- Kattintható szöveg → /services főoldalra visz -->
+          <a class="nav-link pe-1" routerLink="/services">Szolgáltatások</a>
+
+          <!-- Csak a kis nyíl nyitja a dropdownt (hover CSS-sel) -->
+          <a class="nav-link ps-0 pe-2 dropdown-toggle dropdown-toggle-split" 
+             style="cursor: pointer;" 
+             id="navbarDropdown">
+          </a>
+
+          <!-- A legördülő lista - szép, kerekített stílussal -->
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 p-2" 
+              aria-labelledby="navbarDropdown"
+              style="min-width: 220px;">
+            <li *ngFor="let service of servicesList">
+              <a class="dropdown-item rounded-2 py-2" 
+                 [routerLink]="['/services', service.id]"
+                 style="font-size: 0.9rem;">
+                {{ service.title }}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">Rólunk</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Kapcsolat</a>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+</nav>

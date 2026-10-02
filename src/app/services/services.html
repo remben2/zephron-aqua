@@ -1,0 +1,28 @@
+<div class="container py-5">
+  
+  <div class="row mb-5 text-center animation-fade-in">
+    <div class="col-12">
+      <h2 class="display-5 fw-bold" style="color: var(--zephron-blue);">Megoldásaink</h2>
+      <p class="lead text-muted">A legmagasabb szintű ipari technológiák egy kézben</p>
+    </div>
+  </div>
+
+  <div class="row g-5 animation-fade-in">
+    <div class="col-md-4" *ngFor="let service of servicesList">
+      <div class="card h-100 shadow border-0 overflow-hidden">
+        <img [src]="service.thumbUrl" class="card-img-top" alt="Szolgáltatás" style="height: 250px; object-fit: cover;">
+        <div class="card-body p-4">
+          <h4 class="card-title fw-bold" style="color: var(--zephron-blue);">{{ service.title }}</h4>
+          <p class="card-text text-muted mt-3" style="line-height: 1.8;">{{ service.desc }}</p>
+        </div>
+        <div class="card-footer bg-white border-0 pb-4 px-4 pt-0">
+          <!-- Dinamikus paraméteres link: /services/szennyviz -->
+          <a [routerLink]="['/services', service.id]" class="btn btn-outline-success w-100 fw-bold d-block text-decoration-none" style="border-color: var(--zephron-green); color: var(--zephron-blue);">
+            Részletek &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

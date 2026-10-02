@@ -1,0 +1,43 @@
+<div class="container py-5">
+  
+  <div *ngIf="service" class="animation-fade-in">
+    
+    <!-- Vissza gomb (most már valódi routerLink-kel mutat a /services URL-re) -->
+    <a routerLink="/services" class="btn btn-light mb-4 shadow-sm fw-bold text-decoration-none text-dark">
+      &larr; Vissza a megoldásokhoz
+    </a>
+
+    <!-- Óriási borítókép -->
+    <div class="w-100 rounded-4 overflow-hidden shadow-sm mb-5" style="height: 400px;">
+      <img [src]="service.imageUrl" alt="Kép" class="w-100 h-100" style="object-fit: cover;">
+    </div>
+
+    <!-- Cikk tartalma -->
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <span class="text-uppercase fw-bold" style="color: var(--zephron-green); letter-spacing: 2px;">Szolgáltatás Részletei</span>
+        <h1 class="display-4 fw-bold mb-5" style="color: var(--zephron-dark);">{{ service.title }}</h1>
+        
+        <p class="lead fw-normal text-muted mb-5" style="line-height: 1.8; font-size: 1.25rem;">
+          {{ service.detailedDesc }}
+        </p>
+
+        <hr class="mb-5">
+        
+        <!-- Call to Action -->
+        <div class="bg-light p-5 rounded-4 text-center shadow-sm">
+          <h3 class="fw-bold mb-3">Felkeltettük érdeklődését?</h3>
+          <p class="text-muted mb-4">Mérnöki csapatunk készen áll, hogy megtalálja a tökéletes megoldást az Ön vállalatának is.</p>
+          <a routerLink="/contact" class="btn btn-lg px-5 fw-bold" style="background-color: var(--zephron-blue); color: white;">Ajánlatkérés</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!service" class="text-center py-5">
+    <h2>A keresett szolgáltatás nem található.</h2>
+    <a routerLink="/services" class="btn btn-primary mt-3">Vissza az összeshez</a>
+  </div>
+
+</div>

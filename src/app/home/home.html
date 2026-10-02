@@ -1,0 +1,109 @@
+<!-- 1. HERO SZEKCIÓ (Nagy, sötét kiemelt fejléc) -->
+<!-- Később ide majd betehetünk egy gyönyörű ipari/vizes háttérképet! -->
+<div class="bg-dark text-white text-center py-5 shadow">
+  <div class="container py-5">
+    <h1 class="display-3 fw-bold mb-4">Ipari Szűréstechnika és Vízkezelés</h1>
+    <p class="lead fs-4 mb-5">
+      Vegyszeres vízkezelés, szennyvízkezelő berendezések tervezése és gyártása, <br>
+      valamint szűrőbetétek ipari vízfelhasználók számára.
+    </p>
+    <!-- Gomb, ami átvisz a kapcsolat oldalra (Ne felejtsd, ehhez a home.ts-ben nem kell RouterLink-et importálni? DE KELL! Később megcsináljuk!) -->
+    <a routerLink="/contact" class="btn btn-lg fw-bold" style="background-color: var(--zephron-green); color: white;">
+      Kérjen egyedi ajánlatot!
+    </a>
+  </div>
+</div>
+
+<!-- 2. STATISZTIKÁK SZEKCIÓ -->
+<div class="container mt-5">
+  <div class="row">
+    
+    <!-- Iterálunk a TS-ben lévő companyStats listánkon -->
+    <div class="col-md-3 mb-4" *ngFor="let stat of companyStats">
+      <div class="card h-100 text-center shadow-sm border-0" style="border-bottom: 4px solid var(--zephron-blue) !important;">
+        <div class="card-body">
+          <!-- A számot gigantikus kék betűkkel írjuk ki -->
+          <h2 class="display-4 fw-bold" style="color: var(--zephron-blue);">{{ stat.number }}</h2>
+          <p class="card-text text-muted mt-3">{{ stat.text }}</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- KÖZTES SZEKCIÓ: Rólunk Röviden & Szolgáltatások Átvezető -->
+<div class="container py-5 mt-5">
+  <div class="row align-items-center">
+    
+    <!-- Bal oldal: Bemutatkozás -->
+    <div class="col-md-6 mb-4 mb-md-0 pe-md-5">
+      <span class="text-uppercase fw-bold" style="color: var(--zephron-green); letter-spacing: 2px;">Cégünkről</span>
+      <h2 class="display-6 fw-bold mb-4" style="color: var(--zephron-dark);">Ipari víztisztítás kompromisszumok nélkül</h2>
+      <p class="text-muted mb-4" style="line-height: 1.8;">
+        Vállalatunk a hazai gépészeti, szűréstechnikai és vízipari piac specializált szereplője. Míg anyavállalatunk, a Zephron Kft. a kereskedelmi feladatokat látja el, mi a célzott ipari automatizálási és környezetvédelmi projektekre fókuszálunk.
+      </p>
+      <!-- Gomb a Rólunk oldalra -->
+      <a routerLink="/about" class="btn btn-outline-dark fw-bold px-4 py-2">Bővebben rólunk &rarr;</a>
+    </div>
+
+        <!-- Jobb oldal: Szolgáltatások Ízelítő (Két oszlopos kártyák KÉPEKKEL) -->
+    <div class="col-md-6">
+      <div class="row g-3">
+        <!-- 1. Kártya (Kattintható) -->
+        <div class="col-6">
+          <a routerLink="/services/szennyviztechnologia" class="card bg-light border-0 h-100 shadow-sm overflow-hidden text-decoration-none text-dark" style="cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="https://picsum.photos/id/111/600/400" class="card-img-top" alt="Szennyvíz" style="height: 120px; object-fit: cover;">
+            <div class="card-body p-3">
+              <h5 class="fw-bold" style="color: var(--zephron-blue);">Szennyvíz-technológia</h5>
+              <p class="text-muted small mb-0">Szalagprések javítása, rekonstrukciója.</p>
+            </div>
+          </a>
+        </div>
+        
+        <!-- 2. Kártya (Kattintható) -->
+        <div class="col-6">
+          <a routerLink="/services/autoipari-cnc-megoldasok" class="card bg-light border-0 h-100 shadow-sm overflow-hidden text-decoration-none text-dark" style="cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="https://picsum.photos/id/130/600/400" class="card-img-top" alt="Automatizálás" style="height: 120px; object-fit: cover;">
+            <div class="card-body p-3">
+              <h5 class="fw-bold" style="color: var(--zephron-blue);">Automatizálás</h5>
+              <p class="text-muted small mb-0">Vízkezelő rendszerek komplex vezérlése.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Gomb a teljes Szolgáltatásokhoz -->
+      <div class="mt-4 text-end">
+        <a routerLink="/services" class="text-decoration-none fw-bold" style="color: var(--zephron-green);">
+          Összes megoldásunk megtekintése &rarr;
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 3. REFERENCIÁK (LOGÓ SÁV) -->
+<div class="bg-white py-5 mt-5 border-top border-bottom"> <!-- bg-light helyett bg-white a JPG-k miatt! -->
+  <div class="container">
+    
+    <div class="row mb-4 text-center">
+      <div class="col-12">
+        <p class="text-uppercase fw-bold text-muted mb-0" style="letter-spacing: 2px;">Kiemelt partnereink és referenciáink</p>
+      </div>
+    </div>
+
+    <!-- Logók sávja -->
+    <div class="d-flex flex-wrap justify-content-center align-items-center gap-5">
+      
+      <!-- Figyeld a 'partner-logo' osztályt, ezt fogjuk a CSS-ben meganimálni! -->
+      <img src="DMRV Zrt..jpg" alt="DMRV Zrt." class="partner-logo">
+      <img src="FOTAV_zold-1024x414.png" alt="FŐTÁV" class="partner-logo">
+      <img src="pekatronic-420x220px.jpg" alt="Pekatronik" class="partner-logo">
+      <img src="mikropor_logo_yatay.png" alt="Micropor" class="partner-logo">
+
+    </div>
+
+  </div>
+</div>
